@@ -7,6 +7,7 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
     <item
+        android:id="@+id/Notifications"
         android:orderInCategory="101"
-        android:title="Notifications" />
+        android:title="@string/notifications" />
 </menu>
