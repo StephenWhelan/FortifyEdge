@@ -1,4 +1,4 @@
-package com.example.covidcapstone.ui.health_tips
+package com.example.covidcapstone.ui.slideshow
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,21 +10,21 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.covidcapstone.R
 
-class HealthTipsFragment : Fragment() {
+class SlideshowFragment : Fragment() {
 
-    private lateinit var healthTipsViewModel: HealthTipsViewModel
+    private lateinit var slideshowViewModel: SlideshowViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        healthTipsViewModel =
-                ViewModelProviders.of(this).get(HealthTipsViewModel::class.java)
+        slideshowViewModel =
+                ViewModelProviders.of(this).get(SlideshowViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_healthtips, container, false)
-        val textView: TextView? = root.findViewById(R.id.text_gallery)
-        healthTipsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView?.text = it
+        val textView: TextView = root.findViewById(R.id.text_gallery)
+        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
         })
         return root
     }

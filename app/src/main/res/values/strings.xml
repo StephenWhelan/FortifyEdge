@@ -7,7 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="notifications">Notifications</string>
-    <string name="placeholder">Placeholder text</string>
 
     <string name="menu_contactTracing">Contact Tracing</string>
     <string name="menu_gallery">Gallery</string>
