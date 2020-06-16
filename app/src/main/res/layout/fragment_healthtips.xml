@@ -8,21 +8,18 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="73dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="700dp"
-        android:text="This is where we can put some tips in the future"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center"
+        android:text="Hand Washing and Basic Health"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/buttonCDC"
@@ -42,19 +39,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView3"
+    <ImageView
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="184dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="184dp"
-        android:text="  Lorem ipsum dolodipiscing elit. Ut eget nisl sit amet magna dictum commodo a tempus massa. Fusce finibus rutrum erat interdum ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tempor odio ac lectus aliquam fringilla. Mauris at consectetur risus. Morbi rhoncus purus nulla, vitae faucibus arcu iaculis eget. Praesent quis molestie lectus. Aliquam urna ligula, vulputate sit amet nisi eu, ornare tempor ex. Curabitur eget tortor eu quam vehicula ornare. Cras ut eleifend turpis. Cras orci dolor, facilisis eu sodales vitae, vulputate sit amet lorem.  Cras rutrum tempus diam vel laoreet. Suspendisse vitae vulputate nunc. Maecenas mattis quis metus sed eleifend. Sed vestibulum elementum tempus. Praesent id vehicula massa. Maecenas sed neque efficitur, euismod nulla eu, vehicula lorem. Vestibulum in egestas massa, a dignissim turpis. Donec faucibus nibh sed quam tempus dignissim. Proin mattis ornare justo, sed efficitur metus laoreet vitae. Nullam purus metus, pulvinar sit amet leo sed, euismod lobortis dui. Nunc a justo eu leo bibendum dignissim nec et orci. Quisque non egestas velit, ullamcorper pulvinar mi. Praesent cursus, nibh in placerat suscipit, enim est blandit purus, eu venenatis mi orci sed quam. Nulla et massa ac urna pellentesque vulputate. Morbi mollis magna venenatis elit fringilla, in vestibulum velit semper. "
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/handwash"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCDC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
