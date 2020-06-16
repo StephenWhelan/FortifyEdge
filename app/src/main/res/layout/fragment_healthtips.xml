@@ -8,14 +8,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="73dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="639dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="700dp"
         android:text="This is where we can put some tips in the future"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,8 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonCDC"
+        style="@style/Widget.AppCompat.Button.Borderless.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="89dp"
@@ -34,6 +35,7 @@
         android:layout_marginEnd="89dp"
         android:layout_marginRight="89dp"
         android:layout_marginBottom="67dp"
+        android:capitalize="words"
         android:text="Button to link to COVID info"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,9 +44,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
         android:layout_marginTop="184dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
         android:layout_marginBottom="184dp"
         android:text="  Lorem ipsum dolodipiscing elit. Ut eget nisl sit amet magna dictum commodo a tempus massa. Fusce finibus rutrum erat interdum ultrices. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent tempor odio ac lectus aliquam fringilla. Mauris at consectetur risus. Morbi rhoncus purus nulla, vitae faucibus arcu iaculis eget. Praesent quis molestie lectus. Aliquam urna ligula, vulputate sit amet nisi eu, ornare tempor ex. Curabitur eget tortor eu quam vehicula ornare. Cras ut eleifend turpis. Cras orci dolor, facilisis eu sodales vitae, vulputate sit amet lorem.  Cras rutrum tempus diam vel laoreet. Suspendisse vitae vulputate nunc. Maecenas mattis quis metus sed eleifend. Sed vestibulum elementum tempus. Praesent id vehicula massa. Maecenas sed neque efficitur, euismod nulla eu, vehicula lorem. Vestibulum in egestas massa, a dignissim turpis. Donec faucibus nibh sed quam tempus dignissim. Proin mattis ornare justo, sed efficitur metus laoreet vitae. Nullam purus metus, pulvinar sit amet leo sed, euismod lobortis dui. Nunc a justo eu leo bibendum dignissim nec et orci. Quisque non egestas velit, ullamcorper pulvinar mi. Praesent cursus, nibh in placerat suscipit, enim est blandit purus, eu venenatis mi orci sed quam. Nulla et massa ac urna pellentesque vulputate. Morbi mollis magna venenatis elit fringilla, in vestibulum velit semper. "
         app:layout_constraintBottom_toBottomOf="parent"
