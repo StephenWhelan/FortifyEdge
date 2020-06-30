@@ -15,12 +15,10 @@ import com.google.android.gms.maps.model.MarkerOptions
 /**
  * This shows how to create a simple activity with a map and a marker on the map.
  */
-class GalleryFragment :
-    AppCompatActivity(),
-    OnMapReadyCallback {
+class GalleryFragment : AppCompatActivity(), OnMapReadyCallback {
 
-    val SYDNEY = LatLng(-33.862, 151.21)
-    val ZOOM_LEVEL = 13f
+    val UML = LatLng(42.6553, -71.3247)
+    val ZOOM_LEVEL = 14f
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +39,8 @@ class GalleryFragment :
     override fun onMapReady(googleMap: GoogleMap?) {
         googleMap ?: return
         with(googleMap) {
-            moveCamera(CameraUpdateFactory.newLatLngZoom(SYDNEY, ZOOM_LEVEL))
-            addMarker(MarkerOptions().position(SYDNEY))
+            moveCamera(CameraUpdateFactory.newLatLngZoom(UML, ZOOM_LEVEL))
+            addMarker(MarkerOptions().position(UML))
         }
     }
 }

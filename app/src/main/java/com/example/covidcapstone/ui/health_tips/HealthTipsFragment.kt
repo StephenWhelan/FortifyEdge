@@ -35,7 +35,7 @@ class HealthTipsFragment : Fragment() {
             openURL.data = Uri.parse("https://www.cdc.gov/coronavirus/2019-ncov/index.html")
             startActivity(openURL)
         }
-        val textView: TextView? = root.findViewById(R.id.text1)
+        val textView: TextView? = root.findViewById(R.id.text)
         healthTipsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView?.text = it
         })
