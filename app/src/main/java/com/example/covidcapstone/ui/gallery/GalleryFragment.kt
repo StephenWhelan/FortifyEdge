@@ -15,8 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 /**
  * This shows how to create a simple activity with a map and a marker on the map.
  */
-class GalleryFragment :
-    AppCompatActivity(),
+class GalleryFragment : AppCompatActivity(),
     OnMapReadyCallback {
 
     val SYDNEY = LatLng(-33.862, 151.21)
