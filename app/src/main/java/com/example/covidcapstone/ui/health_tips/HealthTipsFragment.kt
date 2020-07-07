@@ -53,10 +53,7 @@ class HealthTipsFragment : Fragment() {
             startActivity(openURL)
         }
 
-        val textView: TextView? = root.findViewById(R.id.text_gallery)
-        healthTipsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView?.text = it
-        })
+
 
 
 
