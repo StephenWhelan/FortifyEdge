@@ -53,11 +53,6 @@ class HealthTipsFragment : Fragment() {
             startActivity(openURL)
         }
 
-
-
-
-
-
         return root
     }
 
