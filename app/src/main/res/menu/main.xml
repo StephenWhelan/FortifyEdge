@@ -10,4 +10,5 @@
         android:id="@+id/Notifications"
         android:orderInCategory="101"
         android:title="@string/notifications" />
+
 </menu>
