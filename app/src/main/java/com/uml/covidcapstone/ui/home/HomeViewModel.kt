@@ -1,13 +1,13 @@
-package com.example.covidcapstone.ui.health_tips
+package com.uml.covidcapstone.ui.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HealthTipsViewModel : ViewModel() {
+class HomeViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is health tips Fragment"
+        value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 }
