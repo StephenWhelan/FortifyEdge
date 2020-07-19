@@ -1,4 +1,4 @@
-package com.uml.covidcapstone.ui.health_tips
+package com.example.covidcapstone.ui.health_tips
 
 import android.content.Intent
 import android.net.Uri
@@ -6,10 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import com.uml.covidcapstone.R
+import com.example.covidcapstone.R
 
 class HealthTipsFragment : Fragment() {
 
@@ -50,6 +52,11 @@ class HealthTipsFragment : Fragment() {
             openURL.data = Uri.parse("https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html")
             startActivity(openURL)
         }
+
+
+
+
+
 
         return root
     }

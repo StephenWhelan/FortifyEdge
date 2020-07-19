@@ -1,4 +1,4 @@
-package com.uml.covidcapstone.ui.gallery
+package com.example.covidcapstone.ui.gallery
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

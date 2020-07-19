@@ -1,4 +1,4 @@
-package com.uml.covidcapstone
+package com.example.covidcapstone
 
 import org.junit.Test
 
