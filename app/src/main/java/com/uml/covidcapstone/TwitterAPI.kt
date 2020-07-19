@@ -1,131 +1,70 @@
 package com.example.covidcapstone
+import android.R
+import android.content.Context
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.TextView
+import java.util.*
 
 
-import io.reactivex.rxjava3.kotlin.Observables
-import io.reactivex.rxjava3.kotlin.Singles
-import twitter4j.*
-import java.io.InputStream
-
-
-/**
- * Created by andrea on 18/05/16.
- */
-object TwitterAPI {
-
-    private val twitter = Twitter.getInstance()
-
-    fun getHomeTimeline(paging: Paging): Single<MutableList<Status>> =
-        Single.fromCallable { twitter.getHomeTimeline(paging) }
-
-    fun getUserTimeline(userId: Long, paging: Paging): Observable<MutableList<Status>> =
-        Observable.fromCallable { twitter.getUserTimeline(userId, paging) }
-
-    fun searchTweets(query: Query): Single<QueryResult> =
-        Single.fromCallable { twitter.search(query) }
-
-    fun searchUsers(query: String, paging: Paging): Single<MutableList<User>> =
-        Single.fromCallable { twitter.searchUsers(query, paging.page) }
-
-    fun refreshTimeLine(paging: Paging): Single<MutableList<Status>> = getHomeTimeline(paging)
-
-    fun refreshUserTimeLine(userId: Long, paging: Paging): Observable<MutableList<Status>> =
-        getUserTimeline(userId, paging)
-
-    fun updateStatus(tweet: String?): Single<Status> =
-        Single.fromCallable { twitter.updateStatus(tweet) }
-
-    fun updateStatus(tweet: String?, images: List<InputStream>): Single<Status> = Single.fromCallable {
-        val status = StatusUpdate(tweet)
-        val mediaIds = LongArray(images.size)
-        images.forEachIndexed { i, stream ->
-            mediaIds[i] = twitter.uploadMedia("", stream).mediaId
-            stream.close()
-        }
-        status.setMediaIds(*mediaIds)
-        twitter.updateStatus(status)
+class Adapter(
+    context: Context,
+    al_newslist: ArrayList<String>
+) :
+    ArrayAdapter<String?>(context, R.layout.adapter_layout, al_newslist) {
+    var context: Context
+    var viewHolder: ViewHolder? = null
+    var al_newslist = ArrayList<String>()
+    override fun getCount(): Int {
+        Log.e("ADAPTER LIST SIZE", al_newslist.size.toString() + "")
+        return al_newslist.size
     }
 
-    fun updateStatus(statusUpdate: TweetsQueue.StatusUpdate): Single<Status> {
-        if (statusUpdate.reply > 0)
-            if (statusUpdate.streams.isEmpty())
-                return reply(statusUpdate.text, statusUpdate.reply)
-            else
-                return reply(statusUpdate.text, statusUpdate.reply, statusUpdate.streams)
-        else
-            if (statusUpdate.streams.isEmpty())
-                return updateStatus(statusUpdate.text)
-            else
-                return updateStatus(statusUpdate.text, statusUpdate.streams)
+    override fun getItemViewType(position: Int): Int {
+        return position
     }
 
-    fun destroy(statusId: Long): Single<Status> =
-        Single.fromCallable { twitter.destroyStatus(statusId) }
-
-    fun reply(tweet: String?, inReplyToStatusId: Long): Single<Status> = Single.fromCallable {
-        val status = StatusUpdate(tweet)
-        status.inReplyToStatusId = inReplyToStatusId
-        twitter.updateStatus(status)
+    override fun getViewTypeCount(): Int {
+        return if (al_newslist.size > 0) {
+            al_newslist.size
+        } else {
+            1
+        }
     }
 
-    fun reply(tweet: String?, inReplyToStatusId: Long, images: List<InputStream>): Single<Status> =
-        Single.fromCallable {
-            val status = StatusUpdate(tweet)
-            val mediaIds = LongArray(images.size)
-            images.forEachIndexed { i, stream ->
-                mediaIds[i] = twitter.uploadMedia("", stream).mediaId
-                stream.close()
-            }
-            status.setMediaIds(*mediaIds)
-            status.inReplyToStatusId = inReplyToStatusId
-            twitter.updateStatus(status)
+    override fun getItemId(position: Int): Long {
+        return position.toLong()
+    }
+
+    override fun getView(
+        position: Int,
+        convertView: View?,
+        parent: ViewGroup
+    ): View {
+        var convertView = convertView
+        if (convertView == null) {
+            viewHolder = ViewHolder()
+            convertView =
+                LayoutInflater.from(getContext()).inflate(R.layout.adapter_layout, parent, false)
+            viewHolder!!.tv_name =
+                convertView!!.findViewById<View>(R.id.tv_text) as TextView
+            convertView.tag = viewHolder
+        } else {
+            viewHolder = convertView.tag as ViewHolder
         }
+        viewHolder!!.tv_name!!.text = al_newslist[position]
+        return convertView!!
+    }
 
-    fun favorite(statusId: Long): Single<Status> =
-        Single.fromCallable { twitter.createFavorite(statusId) }
+    private class ViewHolder {
+        var tv_name: TextView? = null
+    }
 
-    fun unfavorite(statusId: Long): Single<Status> =
-        Single.fromCallable { twitter.destroyFavorite(statusId) }
-
-    fun retweet(statusId: Long): Single<Status> =
-        Single.fromCallable { twitter.retweetStatus(statusId) }
-
-    fun unretweet(statusId: Long) = destroy(statusId)
-
-    fun getConversation(statusId: Long): Single<Pair<MutableList<Status>, Int>> =
-        Single.fromCallable {
-            val list = ArrayList<Status>()
-            val status = twitter.showStatus(statusId)
-            var currentStatus = status
-            var id: Long = currentStatus.inReplyToStatusId
-            while (id != -1L) {
-                currentStatus = twitter.showStatus(id)
-                list.add(currentStatus)
-                id = currentStatus.inReplyToStatusId
-            }
-
-            val targetIndex = list.size
-            list.add(status)
-
-            val result = twitter.search(Query("to: ${status.user.screenName}"))
-            result.tweets.forEach {
-                    tmpStatus ->
-                if (status.id == tmpStatus.inReplyToStatusId) list.add(tmpStatus)
-            }
-            Pair(list, targetIndex)
-        }
-
-    fun showUser(userId: Long): Single<User> = Single.fromCallable { twitter.showUser(userId) }
-
-    fun showUser(userScreenName: String): Single<User> =
-        Single.fromCallable { twitter.showUser(userScreenName) }
-
-    fun sendPrivateMessage(text: String, userId: Long): Single<DirectMessage> =
-        Single.fromCallable { twitter.sendDirectMessage(userId, text) }
-
-    fun getFriendship(firstUserId: Long, secondUserId: Long): Single<Relationship> =
-        Single.fromCallable { twitter.showFriendship(firstUserId, secondUserId) }
-
-    fun follow(id: Long): Single<User> = Single.fromCallable { twitter.createFriendship(id) }
-
-    fun unfollow(id: Long): Single<User> = Single.fromCallable { twitter.destroyFriendship(id) }
+    init {
+        this.al_newslist = al_newslist
+        this.context = context
+    }
 }
