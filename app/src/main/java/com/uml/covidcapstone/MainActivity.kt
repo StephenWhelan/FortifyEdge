@@ -1,4 +1,4 @@
-package com.example.covidcapstone
+package com.uml.covidcapstone
 
 import android.content.Intent
 import android.net.Uri
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         //set on-click listener
         fab.setOnClickListener {
             val openURL = Intent(Intent.ACTION_VIEW)
-            openURL.data = Uri.parse("https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/diy-cloth-face-coverings.html")
+            openURL.data = Uri.parse("https://umasslowell.co1.qualtrics.com/jfe/form/SV_eIJwjIL6cUWiNO5")
             startActivity(openURL)
         }
     }
