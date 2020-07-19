@@ -1,8 +1,8 @@
 package com.example.covidcapstone
 
 
-import io.reactivex.Observable
-import io.reactivex.Single
+import io.reactivex.rxjava3.kotlin.Observables
+import io.reactivex.rxjava3.kotlin.Singles
 import twitter4j.*
 import java.io.InputStream
 

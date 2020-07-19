@@ -57,13 +57,8 @@ class MainActivity:Activity() {
     // Uses an AsyncTask to download a Twitter user's timeline
     private inner class DownloadTwitterTask:AsyncTask<String, Void, String>() {
         internal val dialog = ProgressDialog(this@MainActivity)
-        protected fun onPreExecute() {
-            super.onPreExecute()
-            dialog.setTitle("Loading")
-            dialog.setMessage("Please wait")
-            dialog.show()
-        }
-        protected fun doInBackground(vararg screenNames:String):String {
+
+        protected override fun doInBackground(vararg screenNames:String):String {
             val result:String = null
             if (screenNames.size > 0)
             {
@@ -72,7 +67,7 @@ class MainActivity:Activity() {
             return result
         }
         // onPostExecute convert the JSON results into a Twitter object (which is an Array list of tweets
-        protected fun onPostExecute(result:String) {
+        protected override fun onPostExecute(result:String) {
             Log.e("result", result)
             dialog.dismiss()
             try
@@ -89,7 +84,7 @@ class MainActivity:Activity() {
                 e.printStackTrace()
             }
             // send the tweets to the adapter for rendering
-            obj_adapter = Adapter(getApplicationContext(), al_text)
+            obj_adapter = TwitterAPI(getApplicationContext(), al_text)
             lv_list.setAdapter(obj_adapter)
         }
         // convert a JSON authentication object into an Authenticated object
