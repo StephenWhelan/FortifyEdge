@@ -1,22 +1,23 @@
 package com.gettweets
 import android.app.Activity
-import android.app.ListActivity
 import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.AsyncTask
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.Toast
 import com.example.covidcapstone.TwitterAPI
+import com.gettweets.MainActivity.DownloadTwitterTask.Companion.CONSUMER_KEY
+import com.gettweets.MainActivity.DownloadTwitterTask.Companion.CONSUMER_SECRET
+import com.gettweets.MainActivity.DownloadTwitterTask.Companion.TwitterStreamURL
+import com.gettweets.MainActivity.DownloadTwitterTask.Companion.TwitterTokenURL
 import com.google.gson.Gson
+import com.uml.covidcapstone.Authenticated
+import com.uml.covidcapstone.R
 
-import org.apache.http.HttpEntity
-import org.apache.http.HttpResponse
 import org.apache.http.client.ClientProtocolException
 import org.apache.http.client.methods.HttpGet
 import org.apache.http.client.methods.HttpPost
@@ -25,7 +26,6 @@ import org.apache.http.entity.StringEntity
 import org.apache.http.impl.client.DefaultHttpClient
 import org.apache.http.params.BasicHttpParams
 import org.json.JSONArray
-import org.json.JSONObject
 import java.io.*
 import java.net.URLEncoder
 import java.util.ArrayList
@@ -60,12 +60,10 @@ class MainActivity:Activity() {
         internal val dialog = ProgressDialog(this@MainActivity)
 
         protected override fun doInBackground(vararg screenNames:String):String {
-            val result:String = null
+            var result: String? = null
             if (screenNames.size > 0)
-            {
                 result = getTwitterStream(screenNames[0])
-            }
-            return result
+            return result.toString()
         }
         // onPostExecute convert the JSON results into a Twitter object (which is an Array list of tweets
         protected override fun onPostExecute(result:String) {
@@ -89,8 +87,8 @@ class MainActivity:Activity() {
             lv_list.setAdapter(obj_adapter)
         }
         // convert a JSON authentication object into an Authenticated object
-        private fun jsonToAuthenticated(rawAuthorization:String):Authenticated {
-            val auth:Authenticated = null
+        private fun jsonToAuthenticated(rawAuthorization:String): Authenticated {
+            var auth: Authenticated? = null
             if (rawAuthorization != null && rawAuthorization.length > 0)
             {
                 try
@@ -102,7 +100,7 @@ class MainActivity:Activity() {
                     // just eat the exception
                 }
             }
-            return auth
+            return auth!!
         }
         private fun getResponseBody(request:HttpRequestBase):String {
             val sb = StringBuilder()
@@ -117,11 +115,10 @@ class MainActivity:Activity() {
                     val entity = response.getEntity()
                     val inputStream = entity.getContent()
                     val bReader = BufferedReader(InputStreamReader(inputStream, "UTF-8"), 8)
-                    val line:String = null
-                    while ((line = bReader.readLine()) != null)
-                    {
-                        sb.append(line)
-                    }
+                    var line:String?="test";
+                    while ((line) != null)
+                        line = bReader.readLine()
+                        sb.append(line.toString())
                 }
                 else
                 {
@@ -134,7 +131,7 @@ class MainActivity:Activity() {
             return sb.toString()
         }
         private fun getTwitterStream(screenName:String):String {
-            val results:String = null
+            var results: String? = null
             // Step 1: Encode consumer key and secret
             try
             {
@@ -155,13 +152,13 @@ class MainActivity:Activity() {
                 val auth = jsonToAuthenticated(rawAuthorization)
                 // Applications should verify that the value associated with the
                 // token_type key of the returned object is bearer
-                if (auth != null && auth.token_type.equals("bearer"))
+                if (auth != null && auth.tokenType.equals("bearer"))
                 {
                     // Step 3: Authenticate API requests with bearer token
                     val httpGet = HttpGet(TwitterStreamURL + screenName)
                     // construct a normal HTTPS request and include an Authorization
                     // header with the value of Bearer <>
-                    httpGet.setHeader("Authorization", "Bearer " + auth.access_token)
+                    httpGet.setHeader("Authorization", "Bearer " + auth.accessToken)
                     httpGet.setHeader("Content-Type", "application/json")
                     // update the results with the body of the response
                     results = getResponseBody(httpGet)
@@ -169,17 +166,18 @@ class MainActivity:Activity() {
             }
             catch (ex:UnsupportedEncodingException) {}
             catch (ex1:IllegalStateException) {}
-            return results
+            return results.toString()
         }
         companion object {
-            internal val CONSUMER_KEY = "nW88XLuFSI9DEfHOX2tpleHbR"
-            internal val CONSUMER_SECRET = "hCg3QClZ1iLR13D3IeMvebESKmakIelp4vwFUICuj6HAfNNCer"
-            internal val TwitterTokenURL = "https://api.twitter.com/oauth2/token"
-            internal val TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
+            val CONSUMER_KEY = "nW88XLuFSI9DEfHOX2tpleHbR"
+            val CONSUMER_SECRET = "hCg3QClZ1iLR13D3IeMvebESKmakIelp4vwFUICuj6HAfNNCer"
+            val TwitterTokenURL = "https://api.twitter.com/oauth2/token"
+            val TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
         }
     }
     companion object {
         internal val ScreenName = "Deepshikhapuri"
         internal val LOG_TAG = "rnc"
     }
+
 }
