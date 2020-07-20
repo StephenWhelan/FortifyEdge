@@ -32,7 +32,7 @@ import java.util.ArrayList
 /**
  * Demonstrates how to use a twitter application keys to access a user's timeline
  */
-class MainActivity:Activity() {
+class NotificationActivity:Activity() {
     internal lateinit var lv_list:ListView
     internal var al_text = ArrayList<String>()
     internal lateinit var obj_adapter:TwitterAPI
@@ -57,7 +57,7 @@ class MainActivity:Activity() {
     }
     // Uses an AsyncTask to download a Twitter user's timeline
     private inner class DownloadTwitterTask:AsyncTask<String, Void, String>() {
-        internal val dialog = ProgressDialog(this@MainActivity)
+        internal val dialog = ProgressDialog(this@NotificationActivity)
 
         protected override fun doInBackground(vararg screenNames:String):String {
             var result: String? = null

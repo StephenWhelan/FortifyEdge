@@ -27,6 +27,8 @@
         android:name="com.uml.covidcapstone.MainActivity"
         android:label="app_bar_main"
         tools:layout="@layout/app_bar_main" />
-    <fragment android:id="@+id/nav_notifications"
-        android:name="com.example.covidcapstone.ui."/>
+    <activity android:id="@+id/nav_notifications"
+        android:name="com.uml.covidcapstone.ui.notifications.NotificationActivity"
+        android:label="@string/notifications"
+        tools:layout="@layout/activity_notifications"/>
 </navigation>
