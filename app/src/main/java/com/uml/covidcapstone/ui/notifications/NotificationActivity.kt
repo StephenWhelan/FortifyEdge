@@ -1,4 +1,4 @@
-package com.gettweets
+package com.uml.covidcapstone.ui.notifications
 import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
@@ -10,10 +10,10 @@ import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import com.example.covidcapstone.TwitterAPI
-import com.gettweets.MainActivity.DownloadTwitterTask.Companion.CONSUMER_KEY
-import com.gettweets.MainActivity.DownloadTwitterTask.Companion.CONSUMER_SECRET
-import com.gettweets.MainActivity.DownloadTwitterTask.Companion.TwitterStreamURL
-import com.gettweets.MainActivity.DownloadTwitterTask.Companion.TwitterTokenURL
+import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_KEY
+import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_SECRET
+import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterStreamURL
+import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterTokenURL
 import com.google.gson.Gson
 import com.uml.covidcapstone.Authenticated
 import com.uml.covidcapstone.R
@@ -168,12 +168,7 @@ class MainActivity:Activity() {
             catch (ex1:IllegalStateException) {}
             return results.toString()
         }
-        companion object {
-            val CONSUMER_KEY = "nW88XLuFSI9DEfHOX2tpleHbR"
-            val CONSUMER_SECRET = "hCg3QClZ1iLR13D3IeMvebESKmakIelp4vwFUICuj6HAfNNCer"
-            val TwitterTokenURL = "https://api.twitter.com/oauth2/token"
-            val TwitterStreamURL = "https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name="
-        }
+
     }
     companion object {
         internal val ScreenName = "Deepshikhapuri"
