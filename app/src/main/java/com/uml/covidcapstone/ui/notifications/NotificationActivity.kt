@@ -9,6 +9,7 @@ import android.util.Base64
 import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.covidcapstone.TwitterAPI
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_KEY
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_SECRET
@@ -32,11 +33,11 @@ import java.util.ArrayList
 /**
  * Demonstrates how to use a twitter application keys to access a user's timeline
  */
-class NotificationActivity:Activity() {
+class NotificationActivity:AppCompatActivity() {
     internal lateinit var lv_list:ListView
     internal var al_text = ArrayList<String>()
     internal lateinit var obj_adapter:TwitterAPI
-    fun onCreateView(savedInstanceState:Bundle) {
+    public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         lv_list = findViewById(R.id.lv_list) as ListView
