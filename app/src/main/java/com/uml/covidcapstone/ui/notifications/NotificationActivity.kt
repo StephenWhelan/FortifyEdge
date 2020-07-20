@@ -14,6 +14,7 @@ import android.widget.ListView
 import android.widget.Toast
 import com.example.covidcapstone.TwitterAPI
 import com.google.gson.Gson
+
 import org.apache.http.HttpEntity
 import org.apache.http.HttpResponse
 import org.apache.http.client.ClientProtocolException

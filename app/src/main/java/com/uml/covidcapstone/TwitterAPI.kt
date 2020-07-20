@@ -1,5 +1,5 @@
 package com.example.covidcapstone
-import android.R
+
 import android.content.Context
 import android.util.Log
 import android.view.LayoutInflater
@@ -7,15 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import com.uml.covidcapstone.R
+
 import java.util.*
 
 
-class Adapter(
+class  TwitterAPI(
     context: Context,
     al_newslist: ArrayList<String>
 ) :
-    ArrayAdapter<String?>(context, R.layout.adapter_layout, al_newslist) {
-    var context: Context
+    ArrayAdapter<String?>(context, R.layout.adapter_layout, al_newslist as List<String?>) {
+    //var context: Context
     var viewHolder: ViewHolder? = null
     var al_newslist = ArrayList<String>()
     override fun getCount(): Int {
@@ -59,12 +61,12 @@ class Adapter(
         return convertView!!
     }
 
-    private class ViewHolder {
+    class ViewHolder {
         var tv_name: TextView? = null
     }
 
     init {
         this.al_newslist = al_newslist
-        this.context = context
+        //this.context = context
     }
 }
