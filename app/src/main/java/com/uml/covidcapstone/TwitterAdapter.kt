@@ -12,7 +12,7 @@ import com.uml.covidcapstone.R
 import java.util.*
 
 
-class  TwitterAPI(
+class  TwitterAdapter(
     context: Context,
     al_newslist: ArrayList<String>
 ) :

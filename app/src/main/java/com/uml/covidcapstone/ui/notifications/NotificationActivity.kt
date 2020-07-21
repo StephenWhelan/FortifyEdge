@@ -1,5 +1,4 @@
 package com.uml.covidcapstone.ui.notifications
-import android.app.Activity
 import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
@@ -10,7 +9,7 @@ import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.covidcapstone.TwitterAPI
+import com.example.covidcapstone.TwitterAdapter
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_KEY
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_SECRET
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterStreamURL
@@ -36,7 +35,7 @@ import java.util.ArrayList
 class NotificationActivity:AppCompatActivity() {
     internal lateinit var lv_list:ListView
     internal var al_text = ArrayList<String>()
-    internal lateinit var obj_adapter:TwitterAPI
+    internal lateinit var obj_adapter:TwitterAdapter
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notifications)
@@ -84,13 +83,13 @@ class NotificationActivity:AppCompatActivity() {
                 e.printStackTrace()
             }
             // send the tweets to the adapter for rendering
-            obj_adapter = TwitterAPI(getApplicationContext(), al_text)
+            obj_adapter = TwitterAdapter(getApplicationContext(), al_text)
             lv_list.setAdapter(obj_adapter)
         }
         // convert a JSON authentication object into an Authenticated object
         private fun jsonToAuthenticated(rawAuthorization:String): Authenticated {
-            var auth: Authenticated? = null
-            if (rawAuthorization != null && rawAuthorization.length > 0)
+            lateinit var auth: Authenticated
+            if (rawAuthorization.isNotEmpty())
             {
                 try
                 {
@@ -101,7 +100,7 @@ class NotificationActivity:AppCompatActivity() {
                     // just eat the exception
                 }
             }
-            return auth!!
+            return auth
         }
         private fun getResponseBody(request:HttpRequestBase):String {
             val sb = StringBuilder()
@@ -172,7 +171,7 @@ class NotificationActivity:AppCompatActivity() {
 
     }
     companion object {
-        internal val ScreenName = "Deepshikhapuri"
+        internal val ScreenName = "umasslowell"
         internal val LOG_TAG = "rnc"
     }
 
