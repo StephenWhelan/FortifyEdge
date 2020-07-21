@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-<<<<<<< HEAD
     package="com.example.covidcapstone">
-=======
-    package="com.uml.capstone">
->>>>>>> Zach-working
 
     <uses-permission
         android:name="android.permission.ACCESS_FINE_LOCATION"
@@ -18,11 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-<<<<<<< HEAD
             android:name=".MainActivity"
-=======
-            android:name="com.uml.capstone.MainActivity"
->>>>>>> Zach-working
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
