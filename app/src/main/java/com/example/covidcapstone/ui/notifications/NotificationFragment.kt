@@ -1,4 +1,4 @@
-package com.uml.covidcapstone.ui.notifications
+package com.example.covidcapstone.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,8 +9,7 @@ import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import com.example.covidcapstone.TwitterAdapter
-import com.example.covidcapstone.ui.notifications.NotificationViewModel
-import com.uml.covidcapstone.R
+import com.example.covidcapstone.R
 import java.util.ArrayList
 
 

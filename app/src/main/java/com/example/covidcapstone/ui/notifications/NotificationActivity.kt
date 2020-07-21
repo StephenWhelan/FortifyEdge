@@ -1,4 +1,4 @@
-package com.uml.covidcapstone.ui.notifications
+package com.example.covidcapstone.ui.notifications
 import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
@@ -16,7 +16,7 @@ import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterStreamURL
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterTokenURL
 import com.google.gson.Gson
 import com.uml.covidcapstone.Authenticated
-import com.uml.covidcapstone.R
+import com.example.covidcapstone.R
 
 import org.apache.http.client.ClientProtocolException
 import org.apache.http.client.methods.HttpGet
