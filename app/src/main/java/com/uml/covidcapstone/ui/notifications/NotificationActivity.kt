@@ -39,8 +39,8 @@ class NotificationActivity:AppCompatActivity() {
     internal lateinit var obj_adapter:TwitterAPI
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        lv_list = findViewById(R.id.lv_list) as ListView
+        setContentView(R.layout.activity_notifications)
+        lv_list = findViewById<ListView>(R.id.lv_list)
         downloadTweets()
     }
     // download twitter timeline after first checking to see if there is a network connection
