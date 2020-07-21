@@ -7,28 +7,24 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.uml.covidcapstone.ui.home.HomeFragment"
+        android:name="com.example.covidcapstone.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.uml.covidcapstone.ui.gallery.GalleryFragment"
+        android:name="com.example.covidcapstone.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_healthTips"
-        android:name="com.uml.covidcapstone.ui.health_tips.HealthTipsFragment"
+        android:name="com.example.covidcapstone.ui.health_tips.HealthTipsFragment"
         android:label="@string/menu_healthTips"
         tools:layout="@layout/fragment_healthtips" />
     <activity
         android:id="@+id/nav_incidentReport"
-        android:name="com.uml.covidcapstone.MainActivity"
+        android:name="com.example.covidcapstone.MainActivity"
         android:label="app_bar_main"
         tools:layout="@layout/app_bar_main" />
-    <fragment android:id="@+id/nav_notifications"
-        android:name="com.uml.covidcapstone.ui.notifications.NotificationFragment"
-        android:label="@string/notifications"
-        tools:layout="@layout/activity_notifications"/>
 </navigation>

@@ -16,10 +16,5 @@
             android:id="@+id/nav_healthTips"
             android:icon="@drawable/ic_menu_healthtips"
             android:title="@string/menu_healthTips" />
-        <item
-            android:id="@+id/nav_notifications"
-            android:icon="@drawable/ic_menu_send"
-            android:title="@string/menu_notifications"
-            />
     </group>
 </menu>
