@@ -1,4 +1,4 @@
-package com.uml.covidcapstone
+package com.uml.capstone
 
 import android.content.Intent
 import android.net.Uri

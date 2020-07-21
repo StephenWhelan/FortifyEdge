@@ -1,4 +1,4 @@
-package com.uml.covidcapstone.ui.health_tips
+package com.uml.capstone.ui.health_tips
 
 import android.content.Intent
 import android.net.Uri
@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.uml.covidcapstone.R
+import com.uml.capstone.R
 
 class HealthTipsFragment : Fragment() {
 
