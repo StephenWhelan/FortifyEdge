@@ -7,24 +7,40 @@
 
     <fragment
         android:id="@+id/nav_home"
+<<<<<<< HEAD
         android:name="com.example.covidcapstone.ui.home.HomeFragment"
+=======
+        android:name="com.uml.capstone.ui.home.HomeFragment"
+>>>>>>> Zach-working
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_gallery"
+<<<<<<< HEAD
         android:name="com.example.covidcapstone.ui.gallery.GalleryFragment"
+=======
+        android:name="com.uml.capstone.ui.gallery.GalleryFragment"
+>>>>>>> Zach-working
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
         android:id="@+id/nav_healthTips"
+<<<<<<< HEAD
         android:name="com.example.covidcapstone.ui.health_tips.HealthTipsFragment"
+=======
+        android:name="com.uml.capstone.ui.health_tips.HealthTipsFragment"
+>>>>>>> Zach-working
         android:label="@string/menu_healthTips"
         tools:layout="@layout/fragment_healthtips" />
     <activity
         android:id="@+id/nav_incidentReport"
+<<<<<<< HEAD
         android:name="com.example.covidcapstone.MainActivity"
+=======
+        android:name="com.uml.capstone.MainActivity"
+>>>>>>> Zach-working
         android:label="app_bar_main"
         tools:layout="@layout/app_bar_main" />
 </navigation>
