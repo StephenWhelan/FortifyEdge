@@ -1,4 +1,5 @@
 package com.example.covidcapstone.ui.notifications
+/*
 import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
@@ -175,4 +176,4 @@ class NotificationActivity:AppCompatActivity() {
         internal val LOG_TAG = "rnc"
     }
 
-}
+}*/
