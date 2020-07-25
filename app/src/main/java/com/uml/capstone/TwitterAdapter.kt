@@ -1,4 +1,4 @@
-package com.example.covidcapstone
+package com.uml.capstone
 
 import android.content.Context
 import android.util.Log
@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
-import com.example.covidcapstone.R
+import com.uml.capstone.R
 
 import java.util.*
 

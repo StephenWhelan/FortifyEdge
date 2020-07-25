@@ -1,4 +1,4 @@
-package com.example.covidcapstone.ui.notifications
+package com.uml.capstone.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,8 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
-import com.example.covidcapstone.TwitterAdapter
-import com.example.covidcapstone.R
+import com.uml.capstone.TwitterAdapter
+import com.uml.capstone.R
 import java.util.ArrayList
 
 
@@ -30,7 +30,7 @@ class NotificationFragment: Fragment() {
         var al_text = ArrayList<String>()
         al_text.add("test")
         var correctContext = requireContext()
-        obj_adapter = TwitterAdapter(correctContext,al_text)
+        obj_adapter = TwitterAdapter(correctContext, al_text)
         var adapter = ArrayAdapter.createFromResource(
             requireContext(),
             R.array.region1,

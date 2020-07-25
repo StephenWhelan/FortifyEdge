@@ -1,4 +1,4 @@
-package com.example.covidcapstone.ui.notifications
+package com.uml.capstone.ui.notifications
 import android.app.ProgressDialog
 import android.content.Context
 import android.net.ConnectivityManager
@@ -9,14 +9,14 @@ import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.covidcapstone.TwitterAdapter
+import com.uml.capstone.TwitterAdapter
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_KEY
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.CONSUMER_SECRET
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterStreamURL
 import com.uml.covidcapstone.ui.notifications.TwitterAccess.TwitterTokenURL
 import com.google.gson.Gson
 import com.uml.covidcapstone.Authenticated
-import com.example.covidcapstone.R
+import com.uml.capstone.R
 
 import org.apache.http.client.ClientProtocolException
 import org.apache.http.client.methods.HttpGet
@@ -35,7 +35,7 @@ import java.util.ArrayList
 class NotificationActivity:AppCompatActivity() {
     internal lateinit var lv_list:ListView
     internal var al_text = ArrayList<String>()
-    internal lateinit var obj_adapter:TwitterAdapter
+    internal lateinit var obj_adapter: TwitterAdapter
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notifications)
@@ -83,7 +83,8 @@ class NotificationActivity:AppCompatActivity() {
                 e.printStackTrace()
             }
             // send the tweets to the adapter for rendering
-            obj_adapter = TwitterAdapter(getApplicationContext(), al_text)
+            obj_adapter =
+                TwitterAdapter(getApplicationContext(), al_text)
             lv_list.setAdapter(obj_adapter)
         }
         // convert a JSON authentication object into an Authenticated object

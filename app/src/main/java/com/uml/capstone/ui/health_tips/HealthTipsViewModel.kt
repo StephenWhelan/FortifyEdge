@@ -1,12 +1,13 @@
-package com.example.covidcapstone.ui.notifications
+package com.uml.capstone.ui.health_tips
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class NotificationViewModel : ViewModel() {
+class HealthTipsViewModel : ViewModel() {
+
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Notification Fragment"
+        value = "This is health tips Fragment"
     }
     val text: LiveData<String> = _text
 }
